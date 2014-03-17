@@ -18,9 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    WebApiAccess* aaa = [[WebApiAccess alloc]init];
-    aaa.delegate = self;
-    [aaa getJson];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,11 +28,18 @@
 }
 
 -(void)didFinishedGetJson:(NSArray*)data{
-    
+    _consoleView.text = @"";
     for (NSString*s in data) {
-        NSLog(@"OOOKKK%@",s);
+        _consoleView.text = [_consoleView.text stringByAppendingString:[NSString stringWithFormat:@"%@\n",s]];
     }
     
 }
 
+- (IBAction)getBtn:(id)sender {
+    
+    WebApiAccess* aaa = [[WebApiAccess alloc]init];
+    aaa.delegate = self;
+
+    [aaa getJson:[_textField.text intValue]];
+}
 @end

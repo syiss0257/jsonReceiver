@@ -10,9 +10,11 @@
 
 @implementation WebApiAccess
 
--(void)getJson{
+-(void)getJson:(int)idnum{
 
-    NSString *urlStr = [NSString stringWithFormat:@"http://essred.com/service/dbtest/json2.php"];
+    //NSString *urlStr = [NSString stringWithFormat:@"http://essred.com/service/dbtest/json2.php?maker_id=34"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://essred.com/service/dbtest/json2.php?maker_id=%d",idnum];
+    NSLog(@"%@",urlStr);
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];

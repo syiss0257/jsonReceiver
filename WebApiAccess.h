@@ -17,5 +17,5 @@
     NSMutableData *receivedData;;
 }
 @property id<WebAPIAccessDelegate> delegate;
--(void)getJson;
+-(void)getJson:(int)idnum;
 @end

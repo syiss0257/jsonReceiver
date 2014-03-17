@@ -10,5 +10,8 @@
 #import "WebApiAccess.h"
 
 @interface ViewController : UIViewController<WebAPIAccessDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextView *consoleView;
+- (IBAction)getBtn:(id)sender;
 
 @end
